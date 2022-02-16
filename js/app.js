@@ -48,13 +48,15 @@ document.getElementById('save-btn').addEventListener('click', function () {
     // calculating saving amount
     const savingPercentage = getInputValue('save-input') / 100;
     const incomeAmount = getInputValue('income-input');
-    const savingAmount = savingPercentage * incomeAmount;
+    const savingAmount = incomeAmount * savingPercentage;
     // get balance 
     const balanceAmount = getAmount('balance');
+    // error handling when saving amount is more than balance
     if (savingAmount > balanceAmount) {
         alert('you cant save more than your balance');
         return;
     }
+    // updating saving amount
     const savingAmountText = document.getElementById('saving-amount');
     savingAmountText.innerText = savingAmount;
     // calculating remaining balance
