@@ -45,17 +45,19 @@ function getAmount (elementId) {
 }
 
 document.getElementById('save-btn').addEventListener('click', function () {
+    // calculating saving amount
     const savingPercentage = getInputValue('save-input') / 100;
     const incomeAmount = getInputValue('income-input');
-    const savingAmountText = document.getElementById('saving-amount');
-    savingAmountText.innerText = incomeAmount * savingPercentage;
+    const savingAmount = savingPercentage * incomeAmount;
     // get balance 
     const balanceAmount = getAmount('balance');
-    const savingAmount = getAmount('saving-amount');
     if (savingAmount > balanceAmount) {
-        alert('you cant save more than balance');
+        alert('you cant save more than your balance');
         return;
     }
+    const savingAmountText = document.getElementById('saving-amount');
+    savingAmountText.innerText = savingAmount;
+    // calculating remaining balance
     const remainingBalance = document.getElementById('remaining-balance');
     remainingBalance.innerText = balanceAmount - savingAmount;
 } )
