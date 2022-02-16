@@ -47,10 +47,15 @@ function getAmount (elementId) {
 document.getElementById('save-btn').addEventListener('click', function () {
     const savingPercentage = getInputValue('save-input') / 100;
     const incomeAmount = getInputValue('income-input');
-    const savingAmount = document.getElementById('saving-amount');
-    savingAmount.innerText = incomeAmount * savingPercentage;
+    const savingAmountText = document.getElementById('saving-amount');
+    savingAmountText.innerText = incomeAmount * savingPercentage;
     // get balance 
     const balanceAmount = getAmount('balance');
+    const savingAmount = getAmount('saving-amount');
+    if (savingAmount > balanceAmount) {
+        alert('you cant save more than balance');
+        return;
+    }
     const remainingBalance = document.getElementById('remaining-balance');
-    remainingBalance.innerText = balanceAmount - getAmount('saving-amount');
+    remainingBalance.innerText = balanceAmount - savingAmount;
 } )
