@@ -1,10 +1,9 @@
 
 // get value of input fields
 function getInputValue (inputId) {
-    const moneyInput = document.getElementById(inputId);
-    const moneyAmount = parseFloat(moneyInput.value);
-    moneyInput.value = '';
-    return moneyAmount;
+    const inputField = document.getElementById(inputId);
+    const amount = parseFloat(inputField.value);
+    return amount;
 }
 // calculate total expenses and balance
 document.getElementById('calculate-btn').addEventListener('click', function () {
@@ -39,3 +38,15 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
 // calculate savings and remaining balance 
 
+document.getElementById('save-btn').addEventListener('click', function () {
+    debugger;
+    // const savingInput = document.getElementById('save-input');
+    // const savingPercentage = parseFloat(savingInput.value) / 100;
+    // const incomeInput = document.getElementById('income-input');
+    // const incomeAmount = parseFloat(incomeInput.value);
+    // const savingAmount = incomeAmount * savingPercentage;
+    const savingPercentage = getInputValue('save-input') / 100;
+    const incomeAmount = getInputValue('income-input');
+    const savingAmount = incomeAmount * savingPercentage;
+    console.log(savingAmount);
+} )
