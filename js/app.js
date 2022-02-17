@@ -5,6 +5,12 @@ function getInputValue (inputId) {
     const amount = parseFloat(inputField.value);
     return amount;
 }
+
+// input errors
+function inputError() {
+    document.getElementById('input-error').style.display = 'block';
+}
+
 // calculate total expenses and balance
 document.getElementById('calculate-btn').addEventListener('click', function () {
     debugger;
@@ -16,14 +22,14 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     if (isNaN(incomeAmount) || isNaN(foodCost) || isNaN(rentCost) || isNaN(clothesCost)) {
         // alert('please enter numbers in the input fields');
         document.getElementById('error-message').innerText = 'Input fields can not be empty';
-        document.getElementById('input-error').style.display = 'block';
+        inputError();
         return;
     }
     // negative input handling
     if (incomeAmount < 0 || foodCost < 0 || rentCost < 0 || clothesCost < 0) {
         // alert('please enter positive numbers in the input fields');
         document.getElementById('error-message').innerText = 'Please Enter positive numbers';
-        document.getElementById('input-error').style.display = 'block';
+        inputError();
         return;
     }
     // total cost
@@ -31,7 +37,7 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     if (totalCost > incomeAmount) {
         // alert('total expense cant be more than your income');
         document.getElementById('error-message').innerText = 'Total Expense can not be more than your Income';
-        document.getElementById('input-error').style.display = 'block';
+        inputError();
         return;
     }
     else {
