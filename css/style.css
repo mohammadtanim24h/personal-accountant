@@ -12,3 +12,7 @@ body {
 #input-error {
     display: none;
 }
+
+#saving-error {
+    display: none;
+}
