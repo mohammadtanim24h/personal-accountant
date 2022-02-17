@@ -48,13 +48,13 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     balance.innerText = incomeAmount - parseFloat(totalExpense.innerText);
 } )
 
-// calculate savings and remaining balance 
-
 function getAmount (elementId) {
     const element = document.getElementById(elementId);
     const elementAmount = parseInt(element.innerText);
     return elementAmount;
 }
+
+// calculate savings and remaining balance 
 
 document.getElementById('save-btn').addEventListener('click', function () {
     // calculating saving amount
@@ -66,7 +66,6 @@ document.getElementById('save-btn').addEventListener('click', function () {
     const balanceAmount = getAmount('balance');
     // error handling when saving amount is more than balance
     if (savingAmount > balanceAmount) {
-        // alert('you cant save more than your balance');
         document.getElementById('save-error-message').innerText = 'You can not save more than your balance';
         document.getElementById('saving-error').style.display = 'block';
         return;
