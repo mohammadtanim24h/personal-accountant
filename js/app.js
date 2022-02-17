@@ -45,7 +45,7 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     totalExpense.innerText = totalCost;
     // update balance
     const balance = document.getElementById('balance');
-    balance.innerText = incomeAmount - parseFloat(totalExpense.innerText);
+    balance.innerText = incomeAmount - totalCost;
 } )
 
 function getAmount (elementId) {
@@ -58,7 +58,6 @@ function getAmount (elementId) {
 
 document.getElementById('save-btn').addEventListener('click', function () {
     // calculating saving amount
-    debugger;
     const savingPercentage = getInputValue('save-input') / 100;
     const incomeAmount = getInputValue('income-input');
     const savingAmount = incomeAmount * savingPercentage;
