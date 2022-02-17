@@ -29,8 +29,7 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     }
     // update total expense
     const totalExpense = document.getElementById('total-expense');
-    const totalExpenseAmount = parseFloat(totalExpense.innerText);
-    totalExpense.innerText = totalExpenseAmount + totalCost;
+    totalExpense.innerText = totalCost;
     // update balance
     const balance = document.getElementById('balance');
     balance.innerText = incomeAmount - parseFloat(totalExpense.innerText);
