@@ -8,3 +8,7 @@ body {
 .section-title {
     color : #28ad71;
 }
+
+#input-error {
+    display: none;
+}

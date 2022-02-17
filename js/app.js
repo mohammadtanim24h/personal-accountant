@@ -7,25 +7,35 @@ function getInputValue (inputId) {
 }
 // calculate total expenses and balance
 document.getElementById('calculate-btn').addEventListener('click', function () {
+    debugger;
     const incomeAmount = getInputValue('income-input');
     const foodCost = getInputValue('food-cost');
     const rentCost = getInputValue('rent-cost');
     const clothesCost = getInputValue('cloth-cost');
     // invalid input handling
     if (isNaN(incomeAmount) || isNaN(foodCost) || isNaN(rentCost) || isNaN(clothesCost)) {
-        alert('please enter numbers in the input fields');
+        // alert('please enter numbers in the input fields');
+        document.getElementById('error-message').innerText = 'Input fields can not be empty';
+        document.getElementById('input-error').style.display = 'block';
         return;
     }
     // negative input handling
     if (incomeAmount < 0 || foodCost < 0 || rentCost < 0 || clothesCost < 0) {
-        alert('please enter positive numbers in the input fields');
+        // alert('please enter positive numbers in the input fields');
+        document.getElementById('error-message').innerText = 'Please Enter positive numbers';
+        document.getElementById('input-error').style.display = 'block';
         return;
     }
     // total cost
     const totalCost = foodCost + rentCost + clothesCost;
     if (totalCost > incomeAmount) {
-        alert('total expense cant be more than your income');
+        // alert('total expense cant be more than your income');
+        document.getElementById('error-message').innerText = 'Total Expense can not be more than your Income';
+        document.getElementById('input-error').style.display = 'block';
         return;
+    }
+    else {
+        document.getElementById('input-error').style.display = 'none';
     }
     // update total expense
     const totalExpense = document.getElementById('total-expense');
